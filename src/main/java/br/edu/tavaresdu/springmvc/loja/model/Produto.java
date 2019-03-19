@@ -1,9 +1,7 @@
 package br.edu.tavaresdu.springmvc.loja.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Produto {
@@ -14,6 +12,8 @@ public class Produto {
     private String titulo;
     private String descricao;
     private int paginas;
+    @ElementCollection
+    private List<Preco> preco;
 
     public String getTitulo() {
         return titulo;
@@ -46,5 +46,13 @@ public class Produto {
                 ", descricao='" + descricao + '\'' +
                 ", paginas=" + paginas +
                 '}';
+    }
+
+    public List<Preco> getPreco() {
+        return preco;
+    }
+
+    public void setPreco(List<Preco> preco) {
+        this.preco = preco;
     }
 }
