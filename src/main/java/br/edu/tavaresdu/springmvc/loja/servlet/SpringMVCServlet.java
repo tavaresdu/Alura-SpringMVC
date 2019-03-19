@@ -1,6 +1,7 @@
-package org.edu.tavaresdu.springmvc.loja.servlet;
+package br.edu.tavaresdu.springmvc.loja.servlet;
 
-import org.edu.tavaresdu.springmvc.loja.configuration.AppWebConfiguration;
+import br.edu.tavaresdu.springmvc.loja.configuration.AppWebConfiguration;
+import br.edu.tavaresdu.springmvc.loja.configuration.JPAConfiguration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class SpringMVCServlet extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -12,7 +13,7 @@ public class SpringMVCServlet extends AbstractAnnotationConfigDispatcherServletI
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] {AppWebConfiguration.class};
+        return new Class[] {AppWebConfiguration.class, JPAConfiguration.class};
     }
 
     @Override

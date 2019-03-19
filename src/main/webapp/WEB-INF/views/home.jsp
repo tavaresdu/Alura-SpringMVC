@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="pt">
 <head>
@@ -8,7 +9,7 @@
     <title>Casa do C&oacute;digo</title>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <h1>Casa do C&oacute;digo</h1>
     <table>
         <tr>
             <td>Certifica&ccedil;&atilde;o OCJP</td>
