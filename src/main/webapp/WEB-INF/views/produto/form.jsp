@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="forms" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html lang="pt">
 <head>
@@ -14,14 +16,17 @@
         <div>
             <label>T&iacute;tulo</label>
             <input type="text" name="titulo">
+            <forms:errors path="produto.titulo"></forms:errors>
         </div>
         <div>
             <label>Descri&ccedil;&atilde;o</label>
             <textarea rows="10" cols="20" name="descricao"></textarea>
+            <forms:errors path="produto.descricao"></forms:errors>
         </div>
         <div>
             <label>P&aacute;ginas</label>
             <input type="text" name="paginas">
+            <forms:errors path="produto.paginas"></forms:errors>
         </div>
         <c:forEach items="${tipos}" var="tipoPreco" varStatus="status">
             <div>
