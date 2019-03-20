@@ -24,4 +24,12 @@ public class Preco {
     public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
+
+    @Override
+    public String toString() {
+        return "Preco{" +
+                "tipo=" + tipo +
+                ", valor=" + valor +
+                '}';
+    }
 }

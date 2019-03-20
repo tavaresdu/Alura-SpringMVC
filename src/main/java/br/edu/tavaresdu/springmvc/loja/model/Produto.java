@@ -9,11 +9,15 @@ public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String titulo;
+
     private String descricao;
+
     private int paginas;
+
     @ElementCollection
-    private List<Preco> preco;
+    private List<Preco> precos;
 
     public String getTitulo() {
         return titulo;
@@ -39,20 +43,22 @@ public class Produto {
         this.paginas = paginas;
     }
 
+    public List<Preco> getPrecos() {
+        return precos;
+    }
+
+    public void setPrecos(List<Preco> precos) {
+        this.precos = precos;
+    }
+
     @Override
     public String toString() {
         return "Produto{" +
-                "titulo='" + titulo + '\'' +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", paginas=" + paginas +
+                ", precos=" + precos +
                 '}';
-    }
-
-    public List<Preco> getPreco() {
-        return preco;
-    }
-
-    public void setPreco(List<Preco> preco) {
-        this.preco = preco;
     }
 }
