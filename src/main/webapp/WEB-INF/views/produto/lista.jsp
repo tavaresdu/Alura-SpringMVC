@@ -11,6 +11,7 @@
 </head>
 <body>
     <h1>Casa do C&oacute;digo</h1>
+    <div>${mensagem}</div>
     <table>
         <tr>
             <td>T&iacute;tulo</td>
