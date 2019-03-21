@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="forms" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <!doctype html>
 <html lang="pt">
 <head>
@@ -12,21 +13,22 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/casadocodigo/produto" method="post">
+    <%--@elvariable id="produto" type="br.edu.tavaresdu.springmvc.loja.model.Produto"--%>
+    <form:form action="${s:mvcUrl('PC#gravar').build()}" method="post" commandName="produto">
         <div>
             <label>T&iacute;tulo</label>
             <input type="text" name="titulo">
-            <forms:errors path="produto.titulo"></forms:errors>
+            <forms:errors path="titulo"></forms:errors>
         </div>
         <div>
             <label>Descri&ccedil;&atilde;o</label>
             <textarea rows="10" cols="20" name="descricao"></textarea>
-            <forms:errors path="produto.descricao"></forms:errors>
+            <forms:errors path="descricao"></forms:errors>
         </div>
         <div>
             <label>P&aacute;ginas</label>
             <input type="text" name="paginas">
-            <forms:errors path="produto.paginas"></forms:errors>
+            <forms:errors path="paginas"></forms:errors>
         </div>
         <c:forEach items="${tipos}" var="tipoPreco" varStatus="status">
             <div>
@@ -36,6 +38,6 @@
             </div>
         </c:forEach>
         <button type="submit">Cadastrar</button>
-    </form>
+    </form:form>
 </body>
 </html>
