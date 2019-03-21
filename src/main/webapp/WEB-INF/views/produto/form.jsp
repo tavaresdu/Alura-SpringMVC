@@ -10,11 +10,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Casa do C&oacute;digo</title>
 </head>
 <body>
     <%--@elvariable id="produto" type="br.edu.tavaresdu.springmvc.loja.model.Produto"--%>
-    <form:form action="${s:mvcUrl('PC#gravar').build()}" method="post" commandName="produto">
+    <form:form action="${s:mvcUrl('PC#gravar').build()}" method="post" commandName="produto"
+               enctype="multipart/form-data">
         <div>
             <label>T&iacute;tulo</label>
             <form:input path="titulo"/>
@@ -42,6 +43,10 @@
                 <form:hidden path="precos[${status.index}].tipo" value="${tipoPreco}"/>
             </div>
         </c:forEach>
+        <div>
+            <label>Sum&aacute;rio</label>
+            <input type="file" name="sumario">
+        </div>
         <button type="submit">Cadastrar</button>
     </form:form>
 </body>
