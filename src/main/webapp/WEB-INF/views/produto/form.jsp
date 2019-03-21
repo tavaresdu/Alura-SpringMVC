@@ -17,24 +17,29 @@
     <form:form action="${s:mvcUrl('PC#gravar').build()}" method="post" commandName="produto">
         <div>
             <label>T&iacute;tulo</label>
-            <input type="text" name="titulo">
+            <form:input path="titulo"/>
             <forms:errors path="titulo"></forms:errors>
         </div>
         <div>
             <label>Descri&ccedil;&atilde;o</label>
-            <textarea rows="10" cols="20" name="descricao"></textarea>
+            <form:textarea rows="10" cols="20" path="descricao"/>
             <forms:errors path="descricao"></forms:errors>
         </div>
         <div>
+            <label>Data de lan&ccedil;amento</label>
+            <form:input path="dataLancamento"/>
+            <forms:errors path="dataLancamento"></forms:errors>
+        </div>
+        <div>
             <label>P&aacute;ginas</label>
-            <input type="text" name="paginas">
+            <form:input path="paginas"/>
             <forms:errors path="paginas"></forms:errors>
         </div>
         <c:forEach items="${tipos}" var="tipoPreco" varStatus="status">
             <div>
                 <label>Pre&ccedil;o ${tipoPreco}</label>
-                <input type="text" name="precos[${status.index}].valor">
-                <input type="hidden" name="precos[${status.index}].tipo" value="${tipoPreco}">
+                <form:input path="precos[${status.index}].valor"/>
+                <form:hidden path="precos[${status.index}].tipo" value="${tipoPreco}"/>
             </div>
         </c:forEach>
         <button type="submit">Cadastrar</button>

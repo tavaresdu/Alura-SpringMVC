@@ -10,15 +10,6 @@
 </head>
 <body>
     <h1>Casa do C&oacute;digo</h1>
-    <table>
-        <tr>
-            <td>Certifica&ccedil;&atilde;o OCJP</td>
-            <td>TDD na Pr&aacute;tica - Java</td>
-        </tr>
-        <tr>
-            <td>Google Android</td>
-            <td>Java 8 Pr&aacute;tico</td>
-        </tr>
-    </table>
+    <div><a href="/casadocodigo/produto">Produtos</a></div>
 </body>
 </html>

@@ -11,6 +11,7 @@
 </head>
 <body>
     <h1>Casa do C&oacute;digo</h1>
+    <div><a href="/casadocodigo/produto/form">Cadastrar Produto</a></div>
     <div>${mensagem}</div>
     <table>
         <tr>

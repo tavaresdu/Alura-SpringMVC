@@ -1,6 +1,9 @@
 package br.edu.tavaresdu.springmvc.loja.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.List;
 
 @Entity
@@ -14,10 +17,21 @@ public class Produto {
 
     private String descricao;
 
+    @DateTimeFormat
+    private Calendar dataLancamento;
+
     private int paginas;
 
     @ElementCollection
     private List<Preco> precos;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitulo() {
         return titulo;
@@ -33,6 +47,14 @@ public class Produto {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Calendar getDataLancamento() {
+        return dataLancamento;
+    }
+
+    public void setDataLancamento(Calendar dataLancamento) {
+        this.dataLancamento = dataLancamento;
     }
 
     public int getPaginas() {
