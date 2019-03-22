@@ -16,8 +16,7 @@ public class FileSaver {
 
     public String write(String baseFolder, MultipartFile file) throws IOException {
         String realPath = request.getServletContext().getRealPath("/"+baseFolder);
-        String path = realPath + "/" + file.getOriginalFilename();
-        file.transferTo(new File(path));
-        return path;
+        file.transferTo(new File(realPath + "/" + file.getOriginalFilename()));
+        return baseFolder + "/" + file.getOriginalFilename();
     }
 }

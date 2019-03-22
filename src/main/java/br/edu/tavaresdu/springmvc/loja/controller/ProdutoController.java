@@ -46,7 +46,7 @@ public class ProdutoController {
                                RedirectAttributes redirectAttributes) throws IOException {
         if (result.hasErrors())
             return form(produto);
-        produto.setSumarioPath(fileSaver.write("aquivos-sumario", sumario));
+        produto.setSumarioPath(fileSaver.write("arquivos-sumario", sumario));
         produtoDAO.save(produto);
         redirectAttributes.addFlashAttribute("mensagem", "Produto Cadastrado com Sucesso!");
         return new ModelAndView("redirect:produto");
