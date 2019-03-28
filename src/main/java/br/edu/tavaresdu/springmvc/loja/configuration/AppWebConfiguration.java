@@ -2,6 +2,8 @@ package br.edu.tavaresdu.springmvc.loja.configuration;
 
 import br.edu.tavaresdu.springmvc.loja.controller.HomeController;
 import br.edu.tavaresdu.springmvc.loja.dao.ProdutoDAO;
+import br.edu.tavaresdu.springmvc.loja.infra.FileSaver;
+import br.edu.tavaresdu.springmvc.loja.model.CarrinhoCompras;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,7 +20,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = {HomeController.class, ProdutoDAO.class})
+@ComponentScan(basePackageClasses = {HomeController.class, ProdutoDAO.class, FileSaver.class, CarrinhoCompras.class})
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
     @Bean
@@ -26,6 +28,7 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");
+        resolver.setExposedContextBeanNames("carrinhoCompras");
         return resolver;
     }
 
