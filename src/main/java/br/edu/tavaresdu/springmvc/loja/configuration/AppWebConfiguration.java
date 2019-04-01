@@ -4,6 +4,11 @@ import br.edu.tavaresdu.springmvc.loja.controller.HomeController;
 import br.edu.tavaresdu.springmvc.loja.dao.ProdutoDAO;
 import br.edu.tavaresdu.springmvc.loja.infra.FileSaver;
 import br.edu.tavaresdu.springmvc.loja.model.CarrinhoCompras;
+import com.google.common.cache.CacheBuilder;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
+import org.springframework.cache.guava.GuavaCacheManager;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,7 +25,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import java.util.concurrent.TimeUnit;
+
 @EnableWebMvc
+@EnableCaching
 @ComponentScan(basePackageClasses = {HomeController.class, ProdutoDAO.class, FileSaver.class, CarrinhoCompras.class})
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
@@ -59,6 +67,14 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
+    }
+
+    @Bean
+    public CacheManager cacheManager() {
+        CacheBuilder builder = CacheBuilder.newBuilder().maximumSize(100).expireAfterAccess(5, TimeUnit.MINUTES);
+        GuavaCacheManager manager = new GuavaCacheManager();
+        manager.setCacheBuilder(builder);
+        return manager;
     }
 
     @Override
