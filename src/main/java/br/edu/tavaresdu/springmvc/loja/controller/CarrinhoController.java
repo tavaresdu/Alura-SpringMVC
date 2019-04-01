@@ -3,6 +3,7 @@ package br.edu.tavaresdu.springmvc.loja.controller;
 import br.edu.tavaresdu.springmvc.loja.dao.ProdutoDAO;
 import br.edu.tavaresdu.springmvc.loja.model.CarrinhoCompras;
 import br.edu.tavaresdu.springmvc.loja.model.CarrinhoItem;
+import br.edu.tavaresdu.springmvc.loja.model.Produto;
 import br.edu.tavaresdu.springmvc.loja.model.TipoPreco;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,5 +31,12 @@ public class CarrinhoController {
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView itens() {
         return new ModelAndView("carrinho/itens");
+    }
+
+    @RequestMapping("/remover")
+    public ModelAndView remover(Integer produtoId, TipoPreco tipoPreco) {
+        carrinhoCompras.remover(produtoId, tipoPreco);
+        return new ModelAndView("redirect:/carrinho");
+
     }
 }

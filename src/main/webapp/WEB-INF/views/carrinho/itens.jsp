@@ -89,9 +89,9 @@
 						<td class="quantity-input-cell">
 								<input type="number" min="0" id="quantidade" name="quantidade" value="${carrinhoCompras.getQuantidade(item)}" />
 						</td>
-						<td class="numeric-cell">${carrinhoCompras.getTotal()}</td>
+						<td class="numeric-cell">${carrinhoCompras.getTotal(item)}</td>
 						<td class="remove-item">
-							<form action="" method="POST">
+							<form action="${s:mvcUrl('CC#remover').arg(0, item.produto.id).arg(1, item.tipoPreco).build()}" method="POST">
 								<input type="image" src="${contextPath }/resources/imagens/excluir.png" 
 									alt="Excluir" title="Excluir" />
 							</form>	

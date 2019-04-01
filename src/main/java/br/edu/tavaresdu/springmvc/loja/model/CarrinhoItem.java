@@ -16,6 +16,10 @@ public class CarrinhoItem {
         return produto;
     }
 
+    public TipoPreco getTipoPreco() {
+        return tipoPreco;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
