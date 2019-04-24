@@ -49,7 +49,6 @@
     </nav>
     <div class="container">
         <h1>Lista de Produtos</h1>
-        <div><a href="/casadocodigo/produto/form">Cadastrar Produto</a></div>
         <div>${mensagem}</div>
         <table class="table table-bordered table-striped table-hover">
             <tr>
