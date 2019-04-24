@@ -12,11 +12,6 @@
     <c:url value="/resources/css" var="cssPath" />
     <link rel="stylesheet" href="${cssPath}/bootstrap.min.css">
     <link rel="stylesheet" href="${cssPath}/bootstrap-theme.min.css">
-    <style type="text/css">
-        body {
-            padding: 60px 0px;
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar navbar-inverse">
